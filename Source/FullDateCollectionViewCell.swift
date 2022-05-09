@@ -45,7 +45,7 @@ class FullDateCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    func populateItem(date: Date, style: Style, locale: Locale, includesMonth: Bool) {
+    func populateItem(date: Date, style: Style, locale: Locale, includesMonth: Bool, timeZone: TimeZone) {
         self.highlightColor = style.highlightColor
         self.normalColor = style.normalColor
         self.darkColor = style.darkColor
@@ -53,6 +53,7 @@ class FullDateCollectionViewCell: UICollectionViewCell {
         let mdateFormatter = DateFormatter()
         mdateFormatter.dateFormat = "MMMM"
         mdateFormatter.locale = locale
+        mdateFormatter.timeZone = timeZone
         monthLabel.text = mdateFormatter.string(from: date)
         monthLabel.textColor = isSelected == true ? .white : darkColor.withAlphaComponent(0.5)
         monthLabel.font = style.monthLabelFont
@@ -61,6 +62,7 @@ class FullDateCollectionViewCell: UICollectionViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         dateFormatter.locale = locale
+        dateFormatter.timeZone = timeZone
         dayLabel.text = dateFormatter.string(from: date).uppercased()
         dayLabel.textColor = isSelected == true ? .white : darkColor.withAlphaComponent(0.5)
         dayLabel.font = style.dayLabelFont
@@ -68,6 +70,7 @@ class FullDateCollectionViewCell: UICollectionViewCell {
         let numberFormatter = DateFormatter()
         numberFormatter.dateFormat = "d"
         numberFormatter.locale = locale
+        numberFormatter.timeZone = timeZone
         numberLabel.text = numberFormatter.string(from: date)
         numberLabel.textColor = isSelected == true ? .white : darkColor
         numberLabel.font = style.numberLabelFont

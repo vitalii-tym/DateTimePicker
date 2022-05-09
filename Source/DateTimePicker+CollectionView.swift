@@ -26,7 +26,7 @@ extension DateTimePicker: UICollectionViewDataSource, UICollectionViewDelegate {
                                                      dayLabelFont: customFontSetting.dateCellDayMonthLabelFont,
                                                      numberLabelFont: customFontSetting.dateCellNumberLabelFont,
                                                      monthLabelFont: customFontSetting.dateCellDayMonthLabelFont)
-        cell.populateItem(date: date, style: style, locale: locale, includesMonth: includesMonth)
+        cell.populateItem(date: date, style: style, locale: locale, includesMonth: includesMonth, timeZone: timeZone)
 
         return cell
     }
