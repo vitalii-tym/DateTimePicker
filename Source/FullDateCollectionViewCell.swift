@@ -60,7 +60,7 @@ class FullDateCollectionViewCell: UICollectionViewCell {
         monthLabel.isHidden = !includesMonth
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
+        dateFormatter.dateFormat = "EEE"
         dateFormatter.locale = locale
         dateFormatter.timeZone = timeZone
         dayLabel.text = dateFormatter.string(from: date).uppercased()
