@@ -55,7 +55,9 @@ extension DateTimePicker: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        alignScrollView(scrollView)
+        if decelerate == false {
+            alignScrollView(scrollView)
+        }
     }
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
